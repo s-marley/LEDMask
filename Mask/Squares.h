@@ -17,7 +17,7 @@ bool Squares::runPattern() {
   if(checkButton()) return false;
   EVERY_N_MILLISECONDS(100) {
     FastLED.clear();
-    _pattern = ++_pattern %2;
+    _pattern = (_pattern + 1) %2;
     drawPattern(_pattern);
     FastLED.show();
   }

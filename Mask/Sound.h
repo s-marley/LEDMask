@@ -31,19 +31,20 @@ void Sound::readVolume(){
   unsigned long startMillis = millis();  // Start of sample window
   int peakToPeak = 0;   // peak-to-peak level
 
-  unsigned int signalMax = 0;
-  unsigned int signalMin = 1024;
+  int signalMax = 0;
+  int signalMin = 1024;
 
   // collect data for 50 mS
   while (millis() - startMillis < SAMPLE_WINDOW) {
     sample = analogRead(6);
-    if (sample < 1024)  // toss out spurious readings {
+    if (sample < 1024) {  // toss out spurious readings
       if (sample > signalMax) {
         signalMax = sample;  // save just the max levels
       }
       else if (sample < signalMin) {
         signalMin = sample;  // save just the min levels
       }
+    }
   }
   peakToPeak = signalMax - signalMin - 512;  // max - min = peak-peak amplitude
   peakToPeak = (peakToPeak < 0) ? 0 : peakToPeak;

@@ -30,14 +30,14 @@ bool CrossHatch::runPattern() {
     if (random8(blobRate) == 0) {
       uint8_t spawnY = random8(kMatrixHeight);
       blob[blobCounter] = {0, spawnY, true, CHSV(random8(),255,255)};
-      blobCounter = ++blobCounter %20;
+      blobCounter = (blobCounter + 1) %20;
     }
 
     // Spawn new vertical blob
     if (random8(blobRate) == 0) {
       uint8_t spawnX = random8(kMatrixWidth);
       blob[blobCounter] = {spawnX, 0, false, CHSV(random8(),255,255)};
-      blobCounter = ++blobCounter %20;
+      blobCounter = (blobCounter + 1) %20;
     }
 
     // Draw the blobs

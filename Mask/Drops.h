@@ -4,7 +4,7 @@
 
 class Drops {
   public:
-    Drops(){};
+    Drops();
     bool runPattern();
   private:
     void drawCircle(int xc, int yc, int r, CRGB color);
@@ -21,10 +21,14 @@ class Drops {
     uint8_t rippleCounter = 0;
     uint8_t rippleRate = 10;     // Higher number is fewer ripples
     long previousTime = 0;
-    CRGBPalette16 currentPalette = OceanColors_p;
+    CRGBPalette16 currentPalette;
     CRGBPalette16 targetPalette;
     
 };
+
+Drops::Drops() {
+  currentPalette = OceanColors_p;
+}
 
 bool Drops::runPattern() {
   if(checkButton()) return false;
@@ -32,7 +36,7 @@ bool Drops::runPattern() {
   nblendPaletteTowardPalette( currentPalette, targetPalette, 24);
 
   EVERY_N_SECONDS(5) {
-    paletteNumber = ++paletteNumber %5;
+    paletteNumber = (paletteNumber + 1) %5;
     changePalette();
   }
   
@@ -46,7 +50,7 @@ bool Drops::runPattern() {
       ripple[rippleCounter]._y = spawnY;
       ripple[rippleCounter]._r = 1;
       ripple[rippleCounter]._index = 0;
-      rippleCounter = ++rippleCounter %20;
+      rippleCounter = (rippleCounter + 1) %20;
     }
 
     // Draw ripple and spread out

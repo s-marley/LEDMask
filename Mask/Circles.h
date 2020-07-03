@@ -18,7 +18,7 @@ bool Circles::runPattern() {
   fadeToBlackBy( leds, NUM_LEDS, 20);
   EVERY_N_MILLISECONDS(50) {
     if(_pattern == 8) hue += 32;
-    _pattern = ++_pattern %9;
+    _pattern = (_pattern + 1) %9;
     drawPattern(_pattern);
   }
   FastLED.show();

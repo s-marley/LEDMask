@@ -67,7 +67,7 @@ bool autoChangeVisuals = false;
 Button modeBtn(BTN_PIN, DEBOUNCE_MS);
 
 void incrementButtonPushCounter() {
-  buttonPushCounter = ++buttonPushCounter %11;
+  buttonPushCounter = (buttonPushCounter + 1) %11;
   EEPROM.write(1, buttonPushCounter);
 }
 

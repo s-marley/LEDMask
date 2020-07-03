@@ -5,7 +5,7 @@
 
 class Noise {
   public:
-    Noise(){};
+    Noise();
     bool runPattern();
   private:
     uint16_t x = random16();  // 16 bit version of coordinates
@@ -14,7 +14,7 @@ class Noise {
     uint16_t speed = 20; // speed is set dynamically once we've started up
     uint16_t scale = 30; // scale is set dynamically once we've started up
     uint8_t noise[MAX_DIMENSION][MAX_DIMENSION]; // This is the array that we keep our computed noise values in
-    CRGBPalette16 currentPalette = PartyColors_p; // Starting palette
+    CRGBPalette16 currentPalette; // Starting palette
     CRGBPalette16 targetPalette;  // Target palette to blend to
     uint8_t colorLoop = 1;
     
@@ -26,6 +26,10 @@ class Noise {
     void SetupBlackAndWhiteStripedPalette();
    
 };
+
+Noise::Noise (){
+  currentPalette = PartyColors_p;
+}
 
 bool Noise::runPattern() {
   if(checkButton()) return false;
