@@ -125,19 +125,9 @@ void Snake::nextStep(uint8_t i){
     }
   }
 }
-/*void Snake::chooseNewDirection(uint8_t i) {
-  randomSeed(analogRead(0));
-  int r = 0;
-  do {
-    r = random(4);
-  } while(r == snakes[i].d);
-
-  snakes[i].d = r;
-}*/
 
 void Snake::chooseNewDirection(uint8_t i) {
   randomSeed(analogRead(0));
-  //int r = 0;
   Dir r;
   do {
     r = Dir(rand() % 4);
