@@ -61,7 +61,7 @@ int freeRam () {
 }
 
 // Button stuff
-uint8_t buttonPushCounter = 10;
+uint8_t buttonPushCounter = 0;
 uint8_t state = 0;
 bool autoChangeVisuals = false;
 Button modeBtn(BTN_PIN, DEBOUNCE_MS);
@@ -118,7 +118,9 @@ void setup() {
   FastLED.clear(true);
 
   modeBtn.begin();
-  buttonPushCounter = (int)EEPROM.read(1);    // load previous setting
+  // Upload this sketch once, then uncomment the line below and upload again.
+  // This ensures the EEPROM value is set correctly.
+  // buttonPushCounter = (int)EEPROM.read(1);    // load previous setting
   
   Serial.begin(57600);
   Serial.print(F("Starting pattern "));
