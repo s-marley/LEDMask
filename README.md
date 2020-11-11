@@ -1,11 +1,11 @@
 # LEDMask
 Arduino code using FastLED to display patterns on an irregular matrix, in this case a slightly disturbing looking mask. It will run on pretty much anything from the Nano upwards, and will compile for the ESP32 / ESP8266 etc.
 ## Video guides
-Tutorial showing how to use FastLED to draw to irregular-shaped matrices
+Tutorial showing how to use FastLED to draw to irregular-shaped matrices. Use the code in the folder `Mask` if you are following along with this video.
 
 [![YouTube video of the mask](https://img.youtube.com/vi/zYZkbfmCuEY/0.jpg)](https://www.youtube.com/watch?v=zYZkbfmCuEY)
 
-Follow-up video showing how I built the electronics and enclosure
+Follow-up video showing how I built the electronics and enclosure. The code for this version is given above in the folder `MaskUpdate`. It is slightly different in that it supports three buttons now, one for changing the mode as earlier, and the other two for changing the brightness on most patterns, and changing sound sensitivity on the sound-reactive one.
 
 [![YouTube video of the wiring and enclosure](https://img.youtube.com/vi/_kX5zTTxR9M/0.jpg)](https://www.youtube.com/watch?v=_kX5zTTxR9M)
 ## Trying this yourself
